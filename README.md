@@ -1,1 +1,1 @@
-# pinterest-data-pipeline422
+# Pinterest Data Pipeline Project
