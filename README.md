@@ -1,6 +1,6 @@
 # Pinterest Data Pipeline Project
 
-[git repository link](https://github.com/Saqub88/pinterest-data-pipeline422)
+[git repository link](https:/git /github.com/Saqub88/pinterest-data-pipeline422)
 
 ## Table of Contents
 
