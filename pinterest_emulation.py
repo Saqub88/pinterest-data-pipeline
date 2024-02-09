@@ -11,6 +11,7 @@ random.seed(100)
 
 class AWSDBConnector:
 
+
     def __init__(self):
         
         self.database_credentials = None
@@ -30,10 +31,6 @@ class AWSDBConnector:
             f":{self.database_credentials['PORT']}"
             f"/{self.database_credentials['DATABASE']}?charset=utf8mb4"
         )
-
-new_connector = AWSDBConnector()
-new_connector.read_db_creds('Sensitive data/db_credentials.yaml')
-new_connector.init_db_engine()
 
 def function(sql_querry):
         with new_connector.engine.connect() as connection:
@@ -63,7 +60,7 @@ def post_api(topic, input_dict):
     print(response.json())
 
 def run():
-#     while True:
+     while True:
         sleep(random.randrange(0, 2))
         random_row = random.randint(0, 11000)
 
@@ -76,8 +73,13 @@ def run():
             print(geo_result)
             print(user_result)
 
-            post_api('0aa58e5ad07d.pin', pin_result)
-            post_api('0aa58e5ad07d.geo', geo_result)
-            post_api('0aa58e5ad07d.user', user_result)
+            # post_api('0aa58e5ad07d.pin', pin_result)
+            # post_api('0aa58e5ad07d.geo', geo_result)
+            # post_api('0aa58e5ad07d.user', user_result)
 
-run()
+if __name__ == "__main__":
+    new_connector = AWSDBConnector()
+    new_connector.read_db_creds('Sensitive data/db_credentials.yaml')
+    new_connector.init_db_engine()
+    run()
+    print('Working')

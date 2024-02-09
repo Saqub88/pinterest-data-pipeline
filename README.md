@@ -20,13 +20,26 @@ No installation instructions yet - will be added in future sprints as we progres
 
 ## 3.  Usage Instructions
 
-No usage instructions yet - will be added in future sprints as we progress through the project.
+1. To connect to the EC2 instance that hosts the Kafka server, access the termminal or command prompt and enter the following :
+
+            ssh -i "<USER_ID-key-pair.pem>" ec2-user@<Public IPv4 DNS>
+
+2. Once connected, navigate to the "confluent-7.2.0/bin" folder and enter the following :
+
+            ./kafka-rest-start /home/ec2-user/confluent-7.2.0/etc/kafka-rest/kafka-rest.properties
+
+3. Once the "confluent" is ready and listening to messages, run the 'pinterest_emulation.py' file to begin the simulation of user posts.
 
 ## 4.  File Structure of the project
 
 Any original files are stored within 'Backup of original files' folder.
+
+A copy of the workspace created for Databricks is stored in the 'Databricks workspace copy' folder. 
+The files within this folder are only a copy of the files from the databricks workspace. The project does not utilise the copies but are here only for reference.
+
 Login credentials and keys are stored within 'Sensitive data' folder.
 both of these folders are not pushed to GitHub for security reasons.
+
 
 ## 5.  License information
 
