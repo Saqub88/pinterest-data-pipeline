@@ -1,5 +1,11 @@
 # Databricks notebook source
 # MAGIC %sql
+# MAGIC CREATE DATABASE IF NOT EXISTS 0aa58e5ad07d_db
+# MAGIC LOCATION 'dbfs:/user/hive/0aa58e5ad07d_db.db'
+
+# COMMAND ----------
+
+# MAGIC %sql
 # MAGIC -- Disable format checks during the reading of Delta tables
 # MAGIC SET spark.databricks.delta.formatCheck.enabled=false
 
@@ -16,3 +22,6 @@ def fetch_dataframe(topic):
     return spark.read.format(file_type) \
     .option("inferSchema", infer_schema) \
     .load(file_location)
+
+# COMMAND ----------
+

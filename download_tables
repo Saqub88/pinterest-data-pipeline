@@ -1,0 +1,22 @@
+import yaml
+import sqlalchemy
+import pandas as pd
+
+from sqlalchemy import text
+
+with open('Sensitive data/db_credentials.yaml', 'r') as file:
+    credentials = yaml.safe_load(file)
+
+aws_engine = sqlalchemy.create_engine(
+            f"mysql+pymysql://{credentials['USER']}"
+            f":{credentials['PASSWORD']}"
+            f"@{credentials['HOST']}"
+            f":{credentials['PORT']}"
+            f"/{credentials['DATABASE']}?charset=utf8mb4"
+        )
+
+def return_table(sql_querry):
+    with aws_engine.connect() as connection:
+        querry = text(sql_querry)
+        table = connection.execute(querry)
+        return pd.DataFrame(table)

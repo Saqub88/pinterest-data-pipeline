@@ -73,9 +73,9 @@ def run():
             print(geo_result)
             print(user_result)
 
-            # post_api('0aa58e5ad07d.pin', pin_result)
-            # post_api('0aa58e5ad07d.geo', geo_result)
-            # post_api('0aa58e5ad07d.user', user_result)
+            post_api('0aa58e5ad07d.pin', pin_result)
+            post_api('0aa58e5ad07d.geo', geo_result)
+            post_api('0aa58e5ad07d.user', user_result)
 
 if __name__ == "__main__":
     new_connector = AWSDBConnector()
