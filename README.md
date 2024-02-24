@@ -42,6 +42,8 @@ The files within this folder are only a copy of the files from the databricks wo
 Login credentials and keys are stored within 'Sensitive data' folder.
 both of these folders are not pushed to GitHub for security reasons.
 
+The copy of the DAG for the project which utilised in Apache Airflow is located in the 'DAGs' folder.
+
 
 ## 5.  License information
 
