@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 #Define params for Submit Run Operator
 notebook_task = {
-    'notebook_path': '/Workspace/Users/saqub_ali88@hotmail.co.uk/0aa58e5ad07d.geo'
+    'notebook_path': '/Workspace/Users/saqub_ali88@hotmail.co.uk/0aa58e5ad07d Batch processing'
 }
 
 #Define params for Run Now Operator

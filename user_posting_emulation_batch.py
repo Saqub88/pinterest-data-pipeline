@@ -1,3 +1,5 @@
+import sql_engine_connector
+
 import requests
 from time import sleep
 import random
@@ -49,7 +51,7 @@ def post_api(topic, input_dict):
         "records": [
             {
             #Data should be send as pairs of column_name:value, with different columns separated by commas       
-            "value": input_dict
+            "value" : input_dict
             }
         ]
     })
@@ -64,18 +66,13 @@ def run():
         sleep(random.randrange(0, 2))
         random_row = random.randint(0, 11000)
 
-        with new_connector.engine.connect() as connection:
-            pin_result = function(f"SELECT * FROM pinterest_data LIMIT {random_row}, 1")
-            geo_result = function(f"SELECT * FROM geolocation_data LIMIT {random_row}, 1")
-            user_result = function(f"SELECT * FROM user_data LIMIT {random_row}, 1")
+        pin_result = function(f"SELECT * FROM pinterest_data LIMIT {random_row}, 1")
+        geo_result = function(f"SELECT * FROM geolocation_data LIMIT {random_row}, 1")
+        user_result = function(f"SELECT * FROM user_data LIMIT {random_row}, 1")
 
-            print(pin_result)
-            print(geo_result)
-            print(user_result)
-
-            post_api('0aa58e5ad07d.pin', pin_result)
-            post_api('0aa58e5ad07d.geo', geo_result)
-            post_api('0aa58e5ad07d.user', user_result)
+        post_api('0aa58e5ad07d.pin', pin_result)
+        post_api('0aa58e5ad07d.geo', geo_result)
+        post_api('0aa58e5ad07d.user', user_result)
 
 if __name__ == "__main__":
     new_connector = AWSDBConnector()
