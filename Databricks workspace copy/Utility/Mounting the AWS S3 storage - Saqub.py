@@ -29,4 +29,5 @@ MOUNT_NAME = "/mnt/0aa58e5ad07d-aws-s3-bucket"
 # Source url
 SOURCE_URL = "s3n://{0}:{1}@{2}".format(ACCESS_KEY, ENCODED_SECRET_KEY, AWS_S3_BUCKET)
 # Mount the drive
-dbutils.fs.mount(SOURCE_URL, MOUNT_NAME)
+# dbutils.fs.mount(SOURCE_URL, MOUNT_NAME)  # Once this has run, no need to run again unless AWS_S3_Bucket is unmounted.
+                                            # To test whether AWS_S3_Bucket is mounted, run the code in "/Workspace/Users/saqub_ali88@hotmail.co.uk/Utility/S3 storage mount checker"

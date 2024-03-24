@@ -69,3 +69,25 @@ def correct_date_format(raw_data):
             clean_data[item] = raw_data[item]
     return clean_data
 
+def extract_data_to_dictionary(engine, query):
+    '''
+    This function takes an sql engine and an SQL query as arguments. Using the 
+    SQL querry and sql engine, it executes the query on the database and 
+    produces a table of data. The 'extract_table', 'map_table_to_dictionary' 
+    and 'correct_date_format' functions are then performed against this data to
+    return a dictionary of the data where the datetime  fields have been  
+    formatted correctly into  ISO Format.
+
+    Args:
+        engine (sqlalchemy.engine): An initialized sqlalchemy engine connected
+        to a specific RDS instance.
+        query (str): A valid SQL query statement in standard SQL format.
+
+    Returns:
+        Dictionary: A dictionary where the keys are column names and the values
+        are strings of data under those headers.
+    '''
+    pulled_table = extract_table(engine,query)
+    raw_data_dictionary = map_table_to_dictionary(pulled_table)
+    cleaned_data = correct_date_format(raw_data_dictionary)
+    return cleaned_data

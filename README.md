@@ -30,13 +30,13 @@ Make directory.
 
 download repository and unpack into directory
 
-create conda environment with ___
+install the required pip packages using the included 'requirements.txt' file with the following command
 
-pip packages install using ___
+            pip install -r requirements.txt
 
 ## 3.  Usage Instructions
 
-### Batch
+### Batch processing
 1. To connect to the EC2 instance that hosts the Kafka server, access the termminal or command prompt and enter the following :
 
             ssh -i "<USER_ID-key-pair.pem>" ec2-user@<Public IPv4 DNS>

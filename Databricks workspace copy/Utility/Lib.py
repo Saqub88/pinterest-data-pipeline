@@ -22,6 +22,3 @@ def fetch_dataframe(topic):
     return spark.read.format(file_type) \
     .option("inferSchema", infer_schema) \
     .load(file_location)
-
-# COMMAND ----------
-

@@ -11,13 +11,12 @@ import sqlalchemy
 
 class AWSDBConnector:
     '''
-    This class to be used for connecting and interacting with an Amazon RDS 
+    Class to be used for connecting and interacting with an Amazon RDS 
     instance. In order to be used, the class must be initialised with a valid
     configuration file. The configuration file must contain all the required 
     credentials to connect to databse required for this project.
 
     Attributes:
-        credentials_file_path (str): Path to YAML file of database credentials.
         database_credentials (dict): Dictionary of credentials for database access.
         engine (sqlalchemy.engine): Engine used to connect to Amazon RDS instance.
     '''
@@ -25,23 +24,29 @@ class AWSDBConnector:
     def __init__(self, credentials_path):
         '''
         Initialises the instance based on the path provided to a YAML file
-        containing database connection details.
-
+        containing database connection details. The method will test the keys 
+        contained within yaml file to ensure they meet requirements. Any mismatch
+        of the required keys will cause the program to terminate and the class 
+        will not be created. The checks do not validate thecredentials themselves.
+        With these in place the method will also run the init_db_engine() method.
+        
         Args:
             credentials_path (str): The path to  the YAML file holding the  
             database connection information.
-        '''
-        self.credentials_file_path = credentials_path
-        self.database_credentials = None
-        self.engine = None
-    
-    
-    def read_db_creds(self):
-        '''Reads in the database connection details from the YAML file.'''
-        with open(self.credentials_file_path, 'r') as file:
-            self.database_credentials = yaml.safe_load(file)
 
-    
+        Raises:
+            KeyError: If any of the required fields are missing from the YAML file.
+        '''
+        self.database_credentials = None
+        with open(credentials_path, 'r') as file:
+            self.database_credentials = yaml.safe_load(file)
+        if list(self.database_credentials.keys()) != ['HOST', 'USER', 'PASSWORD', 'DATABASE', 'PORT']:
+            raise KeyError('The credentials file do not contain the following keys'
+                "\n 'HOST', 'USER', 'PASSWORD', 'DATABASE', 'PORT'")
+        self.engine = None
+        self.init_db_engine()
+
+
     def init_db_engine(self):
         '''Initialises SQLAlchemy engine using the database credentials.'''
         self.engine = sqlalchemy.create_engine(
