@@ -5,6 +5,9 @@ This program is designed to emulate user posting on Pinterest by using a batch
 of predefined data from a database and random length pauses to replicate the 
 irregular timing  of real users posting content. This data is then sent to their
 respective Kinesis Data streas via PUT APIs for further processing.
+
+This code is designed to run continuously without interruption. To stop this
+code from running you will need to press Ctrl+C at the terminal.
 '''
 
 import sql_engine_connector
