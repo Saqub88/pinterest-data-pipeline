@@ -9,6 +9,9 @@ respective Kafka topics via POST APIs for further processing.
 To run this script there is a requirement that the Kafka server is running.
 This can be done by following the instructions in the README.md file under the
 'Usage instructions' heading and 'Batch processing' section.
+
+This code is designed to run continuously without interruption. To stop this
+code from running you will need to press Ctrl+C at the terminal.
 '''
 
 import sql_engine_connector
