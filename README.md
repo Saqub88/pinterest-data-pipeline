@@ -52,15 +52,13 @@ install the required pip packages using the included 'requirements.txt' file wit
 
 ## 4.  File Structure of the project
 
-Any original files are stored within 'Backup of original files' folder.
-
-A copy of the workspace created for Databricks is stored in the 'Databricks workspace copy' folder. 
+A copy of the workspace created for Databricks is stored in the 'Databricks workspace' folder. 
 The files within this folder are only a copy of the files from the databricks workspace. The project does not utilise the copies but are here only for reference.
-'0aa58e5ad07d.pin.py', '0aa58e5ad07d.geo.py' and '0aa58e5ad07d.user.py' contain the code for cleaning their respective table.
-'Data querries.py' contains the codes for querrying the tables and creating a dataframe for the results.
+The 'Utility' folder contains the notebooks which are responsible for mounting the AWS S3 storage to Databricks as well as some core functions which reads the raw data.
+'data_cleaning_functions.py' contains the functions required to clean the pin, geo and user tables.
+'Stream tables.py' and '0aa58e5ad07d Batch processing.py' perform the respective Streaming and Batch processing pipelines.
 
-Login credentials and keys are stored within 'Sensitive data' folder.
-both of these folders are not pushed to GitHub for security reasons.
+Login credentials and keys are stored within 'Sensitive data' folder. both of these folders are not pushed to GitHub for security reasons.
 
 The copy of the DAG for the project which utilised in Apache Airflow is located in the 'DAGs' folder.
 
