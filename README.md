@@ -54,14 +54,12 @@ install the required pip packages using the included 'requirements.txt' file wit
 
 Any original files are stored within 'Backup of original files' folder.
 
-A copy of the workspace created for Databricks is stored in the 'databricks_workspace' folder. 
+A copy of the workspace created for Databricks is stored in the 'Databricks workspace copy' folder. 
 The files within this folder are only a copy of the files from the databricks workspace. The project does not utilise the copies but are here only for reference.
-'data_cleaning_functions.py' contains the code for cleaning the data table.
-'data_querries.py' contains the codes for querrying the tables and creating a dataframe for the results.
-'0aa58e5ad07d_batch_processing.py' and 'stream_tables.py' perfrom the respective batch processing and streaming of the data 
+'0aa58e5ad07d.pin.py', '0aa58e5ad07d.geo.py' and '0aa58e5ad07d.user.py' contain the code for cleaning their respective table.
+'Data querries.py' contains the codes for querrying the tables and creating a dataframe for the results.
 
-Login credentials and keys are stored within 'Sensitive data' folder.
-both of these folders are not pushed to GitHub for security reasons.
+Login credentials and keys are stored within 'Sensitive data' folder. both of these folders are not pushed to GitHub for security reasons.
 
 The copy of the DAG for the project which utilised in Apache Airflow is located in the 'DAGs' folder.
 
