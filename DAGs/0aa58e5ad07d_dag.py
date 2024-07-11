@@ -1,16 +1,21 @@
 from airflow import DAG
-from airflow.providers.databricks.operators.databricks import DatabricksSubmitRunOperator, DatabricksRunNowOperator
-from datetime import datetime, timedelta 
+from airflow.providers.databricks.operators.databricks import (
+    DatabricksSubmitRunOperator
+)
+from datetime import datetime, timedelta
 
 
-#Define params for Submit Run Operator
+# Define params for Submit Run Operator
 notebook_task = {
-    'notebook_path': '/Workspace/Users/saqub_ali88@hotmail.co.uk/0aa58e5ad07d Batch processing'
+    "notebook_path": (
+        "/Workspace/Users/saqub_ali88@hotmail.co.uk/"
+        "0aa58e5ad07d_batch_processing"
+    )
 }
 
-#Define params for Run Now Operator
+# Define params for Run Now Operator
 notebook_params = {
-    "Variable":5
+    "Variable": 5
 }
 
 
